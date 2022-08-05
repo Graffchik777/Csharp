@@ -1,18 +1,18 @@
-﻿Console.Write("Введите пятизначное число:     ");
-string? number = Console.ReadLine();
+﻿// Console.Write("Введите пятизначное число:     ");
+// string? number = Console.ReadLine();
 
-void PolliNum(string number)
-{
-  if (number[0]==number[4] || number[1]==number[3])
-  {
-    Console.WriteLine($"Число: {number} это Палиндром.");
-  }
- else Console.WriteLine($"Число: {number} не ЭТО  не палиТдром");
-}
-if (number!.Length == 5)
-{
-  PolliNum(number);
-}
+// void PolliNum(string number)
+// {
+//   if (number[0]==number[4] || number[1]==number[3])
+//   {
+//     Console.WriteLine($"Число: {number} это Палиндром.");
+//   }
+//  else Console.WriteLine($"Число: {number} не ЭТО  не палиТдром");
+// }
+// if (number!.Length == 5)
+// {
+//   PolliNum(number);
+// }
 
 // #include <iostream>
 // int main()
@@ -24,4 +24,8 @@ if (number!.Length == 5)
 //         "it isn'n palindrome");
 //     return 0;
 // } 
-КАК ЭТОТ КОД ПЕРЕПИСАТЬ В С#
+// КАК ЭТОТ КОД ПЕРЕПИСАТЬ В С#
+
+int ch = int.Parse(Console.ReadLine());
+string outLine =((ch % 10 == ch / 10000 && (ch /10) % 10 == (ch / 1000) % 10) ? "it's palindrome" :"it isn'n palindrome");
+Console.WriteLine(outLine);
