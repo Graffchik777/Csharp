@@ -2,7 +2,7 @@
 Console.Write("Введите число ");
 
 long inputNamber = int.Parse(Console.ReadLine());
-long t;
+int t;
 
 void VariantSimple()
 {
