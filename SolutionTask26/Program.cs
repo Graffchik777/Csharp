@@ -2,9 +2,15 @@
 Console.Write("Введите число: ");
 string? inputLine = Console.ReadLine();
 int inputNum = int.Parse(inputLine);
+int t;
 
+t = Environment.TickCount;
 Console.WriteLine(sumNums(inputNum));
+Console.WriteLine("Simple time: {0} ms", Environment.TickCount - t);
+
+t = Environment.TickCount;
 Console.WriteLine(mulRecursia(inputNum));
+Console.WriteLine("Recurs time: {0} ms", Environment.TickCount - t);
 
 int sumNums(int num)
 {
