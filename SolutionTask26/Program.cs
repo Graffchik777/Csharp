@@ -4,6 +4,7 @@ string? inputLine = Console.ReadLine();
 int inputNum = int.Parse(inputLine);
 
 Console.WriteLine(sumNums(inputNum));
+Console.WriteLine(mulRecursia(inputNum));
 
 int sumNums(int num)
 {
@@ -15,3 +16,18 @@ sum = sum * i;
 }
 return sum;
 }
+
+int mulRecursia(int num)
+{
+    if(num == 1)
+    {
+        return 1;
+    }
+    else
+    {
+        return num * mulRecursia(num-1);
+    }
+    }
+
+
+
