@@ -15,6 +15,9 @@ int NumberA = Convert.ToInt16(Console.ReadLine());
 Console.WriteLine("Введите число B: ");
 int NumberB = Convert.ToInt16(Console.ReadLine());
 
+
+
+
 int Exp(int NumberA, int NumberB)
 {
 //   int result = 1;
