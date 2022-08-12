@@ -37,16 +37,18 @@ int[] FillingArray(int[] numbers)
 int[] PrintInArray(int[] numbers)
 {
     int j = 0;
-    Console.WriteLine(" ");
 
+    Console.WriteLine(" ");
+    Console.Write("[");
     while (j < numbers.Length - 1)
     {
-        Console.Write(numbers[j] + "," + " ");
+        Console.Write(numbers[j] + ",");
         j++;
     }
-
-    Console.WriteLine(numbers[j]);
+    Console.Write("]");
+    Console.WriteLine();
     Console.WriteLine(" ");
+
     return numbers;
 }
 
