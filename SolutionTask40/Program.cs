@@ -45,6 +45,7 @@
 
 
 //проверка существования треугольника
+
 bool CheckTriangle(int[] numbers)
 {
     if ((numbers[0] + numbers[1] > numbers[2]) 
