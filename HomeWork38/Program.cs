@@ -23,8 +23,8 @@ for (int z = 0; z < numbers.Length; z++)
         }
 }
 
-Console.WriteLine($"всеголишь {numbers.Length} чисел");
-Console.WriteLine($"Самое большое его значение = {max}, самое маленькое значение = {min}");
+Console.WriteLine($"всего лишь {numbers.Length} чисел");
+Console.WriteLine($"Самое большое его значение = {(max),2}, самое маленькое значение = {(min),2}");
 Console.WriteLine($"Разница между ними имеет значение = {(max - min),2}");
 
 
@@ -33,7 +33,7 @@ void FillingArray(double[] numbers)
     int i = 0;
     while ( i < numbers.Length)
         {
-            numbers[i] = Convert.ToDouble(new Random().Next(100,1000) / 100);
+            numbers[i] = Convert.ToDouble(new System.Random().NextDouble()*100);
                  i++;
         }
         
