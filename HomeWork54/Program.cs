@@ -2,29 +2,33 @@
 //Напишите программу, которая упорядочит по убыванию 
 //элементы каждой строки двумерного массива.
 //------------------------------------------------------------------------
-
+Console.Clear();
 Console.WriteLine("Скока строк?");
 int lines = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Скока столбиков?");
 int columns = Convert.ToInt32(Console.ReadLine());
 int[,] digits = new int[lines, columns];
+
 ArrayRandDigits(digits);
 Console.WriteLine();
 Console.WriteLine("Че было: ");
 PrintArray(digits);
 
-for (int i = 0; i < digits.GetLength(0); i++)
+void ArraySortDigits(int[,] array)
 {
-    for (int j = 0; j < digits.GetLength(1) - 1; j++)
+    for (int i = 0; i < digits.GetLength(0); i++)
     {
-        for (int sort = 0; sort < digits.GetLength(1) - 1; sort++)
+        for (int j = 0; j < digits.GetLength(1) - 1; j++)
         {
-            if (digits[i, sort] < digits[i, sort + 1]) 
+            for (int sort = 0; sort < digits.GetLength(1) - 1; sort++)
             {
-                int temp = 0;
-                temp = digits[i, sort];
-                digits[i, sort] = digits[i, sort + 1];
-                digits[i, sort + 1] = temp;
+                if (digits[i, sort] < digits[i, sort + 1])
+                {
+                    int temp = 0;
+                    temp = digits[i, sort];
+                    digits[i, sort] = digits[i, sort + 1];
+                    digits[i, sort + 1] = temp;
+                }
             }
         }
     }
@@ -32,10 +36,6 @@ for (int i = 0; i < digits.GetLength(0); i++)
 
 
 
-Console.WriteLine();
-Console.WriteLine("Че стало: ");
-
-PrintArray(digits);
 
 void ArrayRandDigits(int[,] array)
 {
@@ -43,7 +43,7 @@ void ArrayRandDigits(int[,] array)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            array[i, j] = new Random().Next(-101, 100);
+            array[i, j] = new Random().Next(0, 10);
         }
     }
 }
@@ -61,3 +61,9 @@ void PrintArray(int[,] array)
         Console.WriteLine(" ");
     }
 }
+
+
+ArraySortDigits(digits);
+Console.WriteLine();
+Console.WriteLine("Че стало: ");
+PrintArray(digits);
