@@ -60,11 +60,13 @@ void PrintArray(int[,] array)
         Console.Write("[ ");
         while (j < array.GetLength(1))
         {
-            Console.Write(array[i, j] + ", ");
+            Console.Write(array[i, j] + "," +" ");
             j++;
         }
         i++;
-        Console.Write(" ]");
+        //int index = LastIndexOf(',');
+         // Console.Write(" ");
+        Console.Write(  "]");
         Console.WriteLine(" ");
     }
 }
