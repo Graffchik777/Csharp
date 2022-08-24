@@ -1,8 +1,9 @@
-﻿//=========================================================================================================
+﻿//==========================================================
 // Задайте двумерный массив. Напишите программу, 
-// которая поменяет местами первую и последнюю строку массива. 
-// Разбор на семинаре
-//=========================================================================================================
+//которая заменяет строки на столбцы. В случае, 
+//если это невозможно, программа должна вывести 
+//сообщение для пользователя.
+//==========================================================
 
 // метод для заполнения двумерного массива
 int[,] FillTwoDimArray(int countRow, int countColumn)
@@ -15,7 +16,7 @@ int[,] FillTwoDimArray(int countRow, int countColumn)
         j = 0;
         while (j < countColumn)
         {
-            outArray[i, j] = numberSyntezator.Next(-10, 10);
+            outArray[i, j] = numberSyntezator.Next(-10, 11);
             j++;
         }
         i++;
@@ -44,26 +45,38 @@ void PrintTwoDimArray(int[,] inputArray)
 // Метод меняет местами первую ипоследнюю строчку
 // Принимает двумерный массив
 // Возвращает модефицированный входной массив
-int[,] RotateRowFirstLast(int[,] inputArray)
+int[,] RotateTwoDimArray(int[,] inputArray)
 {
     int bufferElement = 0;
     int i = 0; int j = 0;
     while (i < inputArray.GetLength(0))
     {
-        //Блок ротации элементов в столбце
-        bufferElement = inputArray[i, 0];
-        inputArray[i, 0] = inputArray[i, inputArray.GetLength(0) - 2];
-        inputArray[i, inputArray.GetLength(0) - 2] = bufferElement;
+        j = i;
+        while (j < inputArray.GetLength(0))
+        {
+            //Блок ротации элементов в столбце
+            bufferElement = inputArray[i, j];
+            inputArray[i, j] = inputArray[j, i];
+            inputArray[j, i] = bufferElement;
+            j++;
+        }
         i++;
     }
     return inputArray;
 }
 
 
- int[,] twoDimArray = FillTwoDimArray(4, 4);
- PrintTwoDimArray(twoDimArray);
+int[,] twoDimArray = FillTwoDimArray(3, 4);
+PrintTwoDimArray(twoDimArray);
+Console.WriteLine();
 
- Console.WriteLine();
- //----------------------------------------------------------
- PrintTwoDimArray(RotateRowFirstLast(twoDimArray));
- //--------------------------------------------------
+if (twoDimArray.GetLength(0) != twoDimArray.GetLength(1))
+{
+    Console.WriteLine("Данный массив перевернуть нельзя!");
+}
+else
+{
+    //----------------------------------------------------------
+    PrintTwoDimArray(RotateTwoDimArray(twoDimArray));
+    //----------------------------------------------------------
+}
